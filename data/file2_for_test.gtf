@@ -1,0 +1,10 @@
+chr1	sd	exon	210	260	.	+	.	gene_id "g1_ref"; transcript_id "t1_ref";
+chr1	sd	exon	300	320	.	+	.	gene_id "g1_ref"; transcript_id "t1_ref";
+chr1	sd	exon	50	70	.	+	.	gene_id "g1_ref"; transcript_id "t2_ref";
+chr1	sd	exon	120	130	.	+	.	gene_id "g1_ref"; transcript_id "t2_ref";
+chr1	sd	exon	200	220	.	+	.	gene_id "g1_ref"; transcript_id "t2_ref";
+chr1	sd	exon	250	270	.	+	.	gene_id "g1_ref"; transcript_id "t2_ref";
+chr1	sd	exon	50	70	.	+	.	gene_id "g1_ref"; transcript_id "t3_ref";
+chr1	sd	exon	120	130	.	+	.	gene_id "g1_ref"; transcript_id "t3_ref";
+chr1	sd	exon	200	220	.	+	.	gene_id "g1_ref"; transcript_id "t3_ref";
+chr1	sd	exon	250	270	.	+	.	gene_id "g1_ref"; transcript_id "t3_ref";
