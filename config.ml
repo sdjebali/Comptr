@@ -54,9 +54,9 @@ The output classes are the following and are chosen in the following order in ca
 - Monoexonic: the assessed transcript is mono-exonic,
 - Intergenic_or_antisense: the assessed transcript is stranded and spliced but does not strandedly overlap any reference transcript,
 - Exact: there is a reference transcript with all its introns equal to the assessed transcript and reciprocally,
+- Inclusion: there is a reference transcript with a subset of introns corresponding to all introns of the assessed transcript,
 - Extension: there is a reference transcript with all its introns equal to the assessed transcript but the assessed
   transcript has additional introns,
-- Inclusion: there is a reference transcript with a subset of introns corresponding to all introns of the assessed transcript,
 - Overlap: there is a reference transcript overlapped by the assessed transcript,
 
 ** file1 and file2 must be provided in gff version 2 format and should contain exon rows (with transcript_id in field no 12).
