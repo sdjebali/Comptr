@@ -36,7 +36,7 @@ let context =
 let usage = 
 " 
                      ***********************************************          
-                     *   comptr - version v1.1 (February 2014)     *
+                     *   comptr - version v1.2 (August 2016)       *
                      *               Sarah Djebali                 *
                      ***********************************************
 
