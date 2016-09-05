@@ -14,8 +14,8 @@ type trclass = | Unstranded
     | Monoexonic
     | IntergenicAntisense
     | Exact
-    | Extension
     | Inclusion
+    | Extension
     | Overlap;;
 
 
@@ -25,8 +25,8 @@ let class_to_string cl =
     | Monoexonic -> "Monoexonic"
     | IntergenicAntisense -> "Intergenic_or_antisense"
     | Exact -> "Exact"
-    | Extension -> "Extension"
     | Inclusion -> "Inclusion"
+    | Extension -> "Extension"
     | Overlap -> "Overlap";;
     
 
@@ -74,11 +74,11 @@ let find_trlist_with_same_strand_and_chrom trll trlist =
 (* Given a transcript tr1 and a list of transcripts trlist2 that overlap it on the same strand 
    provide a class for tr1 as well as the sublist of tr from trlist2 associated to it.
    Priority is give to unstranded tr, then monoex, then in case of overlap priority is given
-   to exact, then extension and then inclusion. I will associate to tr1 its class and its list 
+   to exact, then inclusion and then extension. I will associate to tr1 its class and its list 
    of tr using a triplet as output of this function.
 *)
 let decide_tr_class (tr1,listtr2) =
-  let ltrexact = ref [] and ltrextension = ref [] and ltrinclusion = ref [] in
+  let ltrexact = ref [] and ltrinclusion = ref [] and ltrextension = ref [] in
   if (((Transcript.str tr1)!=Forward) && ((Transcript.str tr1)!=Reverse)) then
     (tr1,Unstranded,[])
   else
@@ -96,14 +96,14 @@ let decide_tr_class (tr1,listtr2) =
 		(tr1,Exact,(!ltrexact))
 	      else
 		begin
-		  ltrextension:=(List.filter (Transcript.tr_extension tr1) listtr2);
-		  if ((List.length (!ltrextension)) != 0) then
-		    (tr1,Extension,(!ltrextension))
+		  ltrinclusion:=(List.filter (Transcript.tr_inclusion tr1) listtr2);
+		  if ((List.length (!ltrinclusion)) != 0) then
+		    (tr1,Inclusion,(!ltrinclusion))
 		  else
 		    begin
-		      ltrinclusion:=(List.filter (Transcript.tr_inclusion tr1) listtr2);
-		      if ((List.length (!ltrinclusion)) != 0) then
-			(tr1,Inclusion,(!ltrinclusion))
+		      ltrextension:=(List.filter (Transcript.tr_extension tr1) listtr2);
+		      if ((List.length (!ltrextension)) != 0) then
+		        (tr1,Extension,(!ltrextension))
 		      else
 			(tr1,Overlap,listtr2)
 		    end
