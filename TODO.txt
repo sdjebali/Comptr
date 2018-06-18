@@ -1,0 +1,13 @@
+
+
+- when a file is empty give a more explicit message than
+  Fatal error: exception Failure("hd")
+
+- when a file is ill formatted say which one
+# Incorrectly formatted gtf file with not even 3 fields separated by tabs!
+
+- allow comment lines in gff files
+
+- the files are sorted multiple times and maybe some sorts could be avoided
+for example it is first sorted and then we use a hashtable to put the tr inside
+and we make a tr list out of it and then we sort...

@@ -344,10 +344,18 @@ struct
       | (Reverse,Forward) -> 1
       | (Forward,Forward) -> if ((Pervasives.compare (t1.chrom) (t2.chrom))!=0) then Pervasives.compare t1.chrom t2.chrom else Pervasives.compare t1.gbeg t2.gbeg
       | (Reverse,Reverse) -> if ((Pervasives.compare (t1.chrom) (t2.chrom))!=0) then Pervasives.compare t1.chrom t2.chrom else Pervasives.compare t2.gend t1.gend
-      | (Forward,_) ->  -1
-      | (_,Reverse) -> 1
+      | (Forward,Unstranded) ->  -1
+      | (Unstranded,Forward) ->  1
+      | (Reverse,Unstranded) ->  -1
+      | (Unstranded,Reverse) ->  1
       | _ -> if ((Pervasives.compare (t1.chrom) (t2.chrom))!=0) then Pervasives.compare t1.chrom t2.chrom else Pervasives.compare t1.gbeg t2.gbeg  (* might not be the ideal thing to do, to refine later on if needed *)
 
+  (*
+those were removed  from the above and the below function
+| (Forward,_) ->  -1
+| (_,Reverse) -> 1
+   *)
+   
   (* compare two transcripts according to strand and genomic position (without assuming they are on the same chr, but taking this info into account). 
      note: for tr on the same strand and chromosome, the result does not depend on the strand since order is gx and not from 5' to 3' *)
   let compare_strand_and_pos_gx t1 t2 =
@@ -355,8 +363,10 @@ struct
       | (Forward,Reverse) -> -1
       | (Reverse,Forward) -> 1
       | (Forward,Forward) | (Reverse,Reverse) -> if ((Pervasives.compare (t1.chrom) (t2.chrom))!=0) then Pervasives.compare t1.chrom t2.chrom else Pervasives.compare t1.gbeg t2.gbeg
-      | (Forward,_) ->  -1
-      | (_,Reverse) -> 1
+      | (Forward,Unstranded) ->  -1
+      | (Unstranded,Forward) ->  1
+      | (Reverse,Unstranded) ->  -1
+      | (Unstranded,Reverse) ->  1
       | _ -> if ((Pervasives.compare (t1.chrom) (t2.chrom))!=0) then Pervasives.compare t1.chrom t2.chrom else Pervasives.compare t1.gbeg t2.gbeg  (* might not be the ideal thing to do, to refine later on if needed *)
 
   (* reports whether a transcript is monoexonic or not *)

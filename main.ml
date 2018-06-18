@@ -31,8 +31,8 @@ let class_to_string cl =
     
 
 (* 
-   The function overlap takes as input two list of transcripts from the same strand and chromosome,
-   and ordered accprding to coordinates (start, end), and outputs a list of pairs of the same size as the first 
+   The function overlap takes as input two lists of transcripts from the same strand and chromosome,
+   and ordered according to coordinates (start, end), and outputs a list of pairs of the same size as the first 
    but with pairs where the first element is the transcript in list1 and the second element is the list 
    of tr of list2 that overlap it. It goes over the two lists at the same time to be faster.  
    if trlist1 is empty then the list returned is also empty
@@ -174,13 +174,12 @@ let comptr_main () =
 												   we have a list of arrays where each array is an array of tr of the same chr *)  
 
   let larr1_cut_by_strand_and_chr = List.flatten llarr1_cut_by_strand_and_chr in
-  let larr2_cut_by_strand_and_chr = List.flatten llarr2_cut_by_strand_and_chr in    (* only one list of arrays, where each array correspond to a different combination of 
+  let larr2_cut_by_strand_and_chr = List.flatten llarr2_cut_by_strand_and_chr in    (* only one list of arrays, where each array corresponds to a different combination of 
 										       strand and chromosome *)
    
   let llist1_cut_by_strand_and_chr = List.map Array.to_list larr1_cut_by_strand_and_chr in
   let llist2_cut_by_strand_and_chr = List.map Array.to_list larr2_cut_by_strand_and_chr in   (* list of list instead of list of arrays *)
   let u = Common.print_log ("# I have divided file1 and file2 transcripts intro sublists according to strand and chromosome\n") in
-
 
   (* 3. For each strand and chromosome, associate to each transcript of the first set the list of transcripts
      from the second set of the same strand and chromosome that overlap it. *)

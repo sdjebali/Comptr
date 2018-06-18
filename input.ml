@@ -68,10 +68,10 @@ let record_of_line_gff_flex lline =
 (* This functions reads from an input channel and makes a list of transcript objects
    from the exon lines seen in the channel. Note: it requires that exon lines contain 
    transcript id in field no 12, preceeded by transcript_id in field no 11 otherwise 
-   it will die. The exons read will be stored as exon objects in
-   the list of exons a tr object contains (get inspired from make_exon_list in input.ml 
-   of makesp code). The maximum number of transcripts is 1 million here but should
-   be taken outside. The hashtable has tr ids for keys and tr as values. 
+   it will die. The exons read will be stored as exon objects in the list of exons a 
+   tr object contains (get inspired from make_exon_list in input.ml of makesp code). 
+   The maximum number of transcripts is 1 million here but should be taken outside. 
+   The hashtable has tr ids for keys and tr as values. 
    Also it returns a list of tr which have correct beg, end and exon list, where
    the exon list of each tr is ordered from 5' to 3', and a list of tr which are themselves
    ordered from 5' to 3' *)

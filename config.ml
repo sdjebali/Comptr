@@ -26,7 +26,7 @@ let context =
   {	
     file1 = "";
     file2 = "";
-    maxnbseq=50;
+    maxnbseq=500;
     outfile="";
     verbose=false;
     sorted=false;
@@ -36,7 +36,7 @@ let context =
 let usage = 
 " 
                      ***********************************************          
-                     *   comptr - version v1.2 (August 2016)       *
+                     *   comptr - version v1.3 (June 2018)         *
                      *               Sarah Djebali                 *
                      ***********************************************
 
@@ -68,7 +68,7 @@ The output classes are the following and are chosen in the following order in ca
                   -> default is unset.
    
    -s nbseq:      nbseq is an upper bound for the number of sequences you have in your input gff files.
-                  -> default is 50.
+                  -> default is 500.
 
    -so:           comptr does not require the input file to be sorted, however this option enables to skip
                   the input file sorting in case this file is already sorted according to strand, chromosome, start, end. 
