@@ -351,7 +351,7 @@ struct
       | _ -> if ((Pervasives.compare (t1.chrom) (t2.chrom))!=0) then Pervasives.compare t1.chrom t2.chrom else Pervasives.compare t1.gbeg t2.gbeg  (* might not be the ideal thing to do, to refine later on if needed *)
 
   (*
-those were removed  from the above and the below function
+those were removed on June 18th 2018 from the above and the below function to make version 1.3
 | (Forward,_) ->  -1
 | (_,Reverse) -> 1
    *)
